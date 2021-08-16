@@ -26,18 +26,18 @@ public class SlimePadEvent implements Listener {
     }
 
     @EventHandler
-    public boolean onLaunch(PlayerMoveEvent e) {
+    public void onLaunch(PlayerMoveEvent e) {
         Player p = e.getPlayer();
 
         if (e.getTo().getBlock().getRelative(BlockFace.DOWN).getType() != Material.valueOf(String.valueOf(material)))
-            return true;
+            return;
         if (!p.hasPermission("slimepads.use")) {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.NO_PERMS));
-            return true;
+            return;
         }
         playerLaunch(e.getPlayer(), c.getString("launchpad-multiplier"));
 
-        return true;
+        return;
     }
 
     private void playerLaunch(Player p, String multiplier) {
