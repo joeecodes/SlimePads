@@ -1,0 +1,9 @@
+settings:
+  prefix: "&2&lSlime&a&lPads"
+  no-permissions: "&cYou do not have permission to use this command"
+  config-reload: "&aConfig reloaded successfully."
+  launchpad-use-disallow: "&cYou do not have access to use this slimepad!"
+  launchpad-block: SLIME_BLOCK
+  launchpad-multiplier: 2
+  launchpad-sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  launchpad-message: "&aSwooosh!"

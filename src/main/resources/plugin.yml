@@ -1,0 +1,5 @@
+name: SlimePads
+version: ${project.version}
+main: me.buryings.slimepads.SlimePads
+authors: [ Buryings ]
+description: Turn slime blocks into launch pads!
