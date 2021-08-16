@@ -1,6 +1,7 @@
 package me.buryings.slimepads.commands;
 
 import me.buryings.slimepads.SlimePads;
+import me.buryings.slimepads.ui.Messages;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,25 +10,23 @@ import org.bukkit.entity.Player;
 
 public class CommandReloadConfig implements CommandExecutor {
 
-    private SlimePads plugin;
+    private final SlimePads plugin;
+
+    public CommandReloadConfig() {
+        this.plugin = SlimePads.getInstance();
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
         Player p = (Player) sender;
-        if (command.getName().equalsIgnoreCase("spreload")) {
-            if (p.hasPermission("slimepads.reloadconfig")) {
-                plugin.reloadConfig();
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "settings.prefix " + "settings.config-reload"));
-            } else {
-                if (!(p.hasPermission("slimepads.reloadconfig"))) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "settings.prefix " + "settings.no-permission"));
-                }
-            }
-
-            return false;
+        if (!p.hasPermission("slimepads.reloadconfig")) {
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.NO_PERMS));
+            return true;
         }
-        return false;
+
+        plugin.reloadConfig();
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.CONFIG_RELOAD));
+        return true;
     }
 
 }

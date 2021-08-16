@@ -6,3 +6,4 @@ description: Turn slime blocks into launch pads!
 commands:
   spreload:
     description: Reloads plugin config
+    usage: /<command>
